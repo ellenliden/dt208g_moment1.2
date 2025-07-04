@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kurshantering - DT208G</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="nav-container">
+          <h1 class="nav-logo">Kurshantering</h1>
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="#home" class="nav-link active">Hem</a>
+            </li>
+            <li class="nav-item">
+              <a href="#courses" class="nav-link">Kurser</a>
+            </li>
+            <li class="nav-item">
+              <a href="#add-course" class="nav-link">Lägg till kurs</a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- startsektion -->
+      <section id="home" class="section active">
+        <div class="container">
+          <h2>Välkommen till Kurshanteringssystemet</h2>
+          <p>
+            Här kan du hantera dina kurser enkelt och effektivt. Lägg till nya
+            kurser, visa befintliga och håll koll på din progression.
+          </p>
+
+          <div class="info">
+            <div class="info-card">
+              <h3>Lägg till kurser</h3>
+              <p>
+                Enkelt formulär för att lägga till nya kurser med all nödvändig
+                information.
+              </p>
+            </div>
+            <div class="info-card">
+              <h3>Visa kurser</h3>
+              <p>
+                Översiktlig lista över alla dina kurser med direktlänkar till
+                kursplaner.
+              </p>
+            </div>
+            <div class="info-card">
+              <h3>Spara automatiskt</h3>
+              <p>All kursinformation sparas lokalt i din webbläsare.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Kurser-sektion -->
+      <section id="courses" class="section">
+        <div class="container">
+          <h2>Dina Kurser</h2>
+          <div class="courses-container">
+            <div id="course-list" class="course-list">
+              <!-- Kurser kommer att läggas till här dynamiskt -->
+            </div>
+            <div id="no-courses" class="no-courses">
+              <p>Inga kurser tillagda än. Lägg till din första kurs!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Lägg till kurs-sektion -->
+      <section id="add-course" class="section">
+        <div class="container">
+          <h2>Lägg till ny kurs</h2>
+          <form id="course-form" class="course-form">
+            <div class="form-group">
+              <label for="code">Kurskod *</label>
+              <input
+                type="text"
+                id="code"
+                name="code"
+                required
+                maxlength="10"
+                placeholder="t.ex. DT208G"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="name">Kursnamn *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="t.ex. Frontend-utveckling"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="progression">Progression *</label>
+              <select id="progression" name="progression" required>
+                <option value="">Välj progression</option>
+                <option value="A">A - Grundnivå</option>
+                <option value="B">B - Avancerad nivå</option>
+                <option value="C">C - Fördjupningsnivå</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="syllabus">Kursplan (URL) *</label>
+              <input
+                type="url"
+                id="syllabus"
+                name="syllabus"
+                required
+                placeholder="https://example.com/kursplan"
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                Lägg till kurs
+              </button>
+              <button type="reset" class="btn btn-secondary">
+                Rensa formulär
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Kurshanteringssystem - DT208G Moment 1.2</p>
+      </div>
+    </footer>
+
+    <script type="module" src="../src/index.ts"></script>
+  </body>
+</html>
