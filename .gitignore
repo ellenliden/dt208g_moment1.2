@@ -1,0 +1,11 @@
+#ignorera node_modules och låsfilor
+node_modules/
+dist/
+*.log
+npm-debug.log*
+.vscode/
+
+# ignorera OS-filer
+.DS_Store
+
+package-lock.json
