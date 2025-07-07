@@ -1,8 +1,11 @@
+/* Grundstilar för hela sidan */
 body {
   margin: 0;
   font-family: "Segoe UI", Arial, sans-serif;
   background: #f7f7f7;
 }
+
+/* Header och nav-baren */
 
 header {
   background: #005b88;
@@ -13,11 +16,13 @@ header {
   z-index: 1000;
 }
 
+/* Nav-baren (menyn)*/
 .navbar {
   width: 100%;
   padding: 0;
 }
 
+/*  centrerar innehållet i menyn */
 .nav-container {
   max-width: 1100px;
   margin: 0 auto;
@@ -27,6 +32,7 @@ header {
   padding: 0.7rem 2rem;
 }
 
+/* logotyp i menyn */
 .nav-logo {
   font-size: 2rem;
   font-weight: 700;
@@ -36,6 +42,7 @@ header {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* horisontell meny-lista */
 .nav-menu {
   list-style: none;
   display: flex;
@@ -49,23 +56,28 @@ header {
   display: flex;
 }
 
+/* Menylänkar */
 .nav-link {
   color: #fff;
   text-decoration: none;
   font-size: 1.15rem;
   padding: 0.6rem 1.1rem;
-  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  transition: all 0.3s ease;
   font-weight: 500;
   position: relative;
 }
 
+/* Hover-effekt för menylänkar */
 .nav-link:hover {
-  font-style: italic;
+  transform: scale(1.05);
+  color: #dab775;
 }
+/* Aktiv menylänk */
 .nav-link.active {
   text-decoration: underline;
 }
 
+/* Hamburger-meny för mobil */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -75,6 +87,7 @@ header {
   z-index: 1100;
 }
 
+/* Hamburger-meny strecken */
 .hamburger .bar {
   width: 28px;
   height: 3.5px;
@@ -83,16 +96,333 @@ header {
   transition: all 0.3s;
 }
 
-@media (max-width: 800px) {
-  .nav-container {
-    padding: 0.5rem 1rem;
+/* Huvudinnehåll - tar upp hela skärmhöjden minus header */
+main {
+  min-height: calc(100vh - 80px);
+}
+
+/* Container för att centrera innehåll */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem;
+}
+
+/* Sektioner - dolda som standard, visas med fade-in animation */
+.section {
+  display: none;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.section.active {
+  display: block;
+}
+
+/* Animation för fade-in effekt när sektioner visas */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .nav-menu {
-    gap: 1.2rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (max-width: 600px) {
+/* Home section */
+#home h2 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#home p {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+/* Info cards */
+/* 3 kort på stora skärmar som desktop */
+/* 2 kort på medelstora skärmar som tablet */
+/* 1 kort på små skärmar som mobil */
+.info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.info-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.info-card h3 {
+  font-size: 1.5rem;
+  color: #005b88;
+  margin-bottom: 1rem;
+}
+
+.info-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/*Courses section */
+#courses h2 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.courses-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Kurslista - vertikal layout */
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/*Individuella kurskort */
+.course-list li {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-left: 4px solid #005b88;
+  transition: transform 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Hover-effekt för kurskort */
+.course-list li:hover {
+  transform: translateX(5px);
+}
+
+/* Kursinnehåll - tar upp tillgängligt utrymme */
+.course-content {
+  flex: 1;
+}
+
+/* Länkar i kurslistan */
+.course-list a {
+  color: #005b88;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Hover-effekt för kurslänkar */
+.course-list a:hover {
+  text-decoration: underline;
+}
+
+/* Ta bort-knapp för kurser */
+.btn-remove {
+  background: #ff4757;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+/* Hover-effekt för ta bort-knapp */
+.btn-remove:hover {
+  background: #ff3742;
+  transform: scale(1.1);
+}
+
+/* meddelande när inga kurser finns inlagda*/
+.no-courses {
+  text-align: center;
+  padding: 3rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* lägg till kurs-sektion */
+#add-course h2 {
+  font-size: 2.5rem;
+  color: #333;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Kursformulär - centrerat med skugga */
+.course-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Formulärgrupper - mellanrum mellan fält */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Formulärlabels */
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* formulärfält - input och select */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+/* "Focus-effekt" för formulärfält */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #005b88;
+}
+
+/* Formulärknappar - centrerade */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Grundläggande stil för alla knappar */
+.btn {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* Primär knapp - blå */
+.btn-primary {
+  background: #005b88;
+  color: #fff;
+}
+
+/* Hover-effekt för primär knapp */
+.btn-primary:hover {
+  background: #004466;
+  transform: translateY(-2px);
+}
+
+/* Sekundär knapp - grå */
+.btn-secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+/* Hover-effekt för sekundär knapp */
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+
+footer p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Responsiv design - tablet (768px och uppåt) */
+@media (min-width: 768px) {
+  .nav-container {
+    padding: 0.7rem 2rem;
+  }
+  .nav-menu {
+    gap: 2.5rem;
+  }
+
+  .container {
+    padding: 2rem 2rem;
+  }
+
+  #home h2,
+  #courses h2,
+  #add-course h2 {
+    font-size: 2.5rem;
+  }
+
+  .info {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+
+  .form-actions {
+    flex-direction: row;
+  }
+}
+
+/*Responsiv design - desktop (1024px och uppåt) */
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1100px;
+  }
+
+  .courses-container {
+    max-width: 800px;
+  }
+
+  .course-form {
+    max-width: 600px;
+  }
+}
+
+/* Responsiv design - mobil (mindre än 768px) */
+@media (max-width: 767px) {
   .nav-container {
     flex-direction: row;
     justify-content: space-between;
@@ -130,8 +460,42 @@ header {
   .hamburger {
     display: flex;
   }
+
+  .container {
+    padding: 1rem 0.5rem;
+  }
+
+  #home h2,
+  #courses h2,
+  #add-course h2 {
+    font-size: 1.8rem;
+  }
+
+  #home p {
+    max-width: 85%;
+  }
+
+  .course-form {
+    margin: 0 1rem;
+    padding: 1.5rem;
+  }
+
+  .info-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .course-list li {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn-remove {
+    align-self: flex-end;
+    margin-left: 0;
+  }
 }
 
+/* animation för mobilmeny */
 @keyframes slideDown {
   from {
     transform: translateY(-20px);
