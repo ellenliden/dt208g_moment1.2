@@ -373,8 +373,20 @@ footer {
 }
 
 footer p {
-  margin: 0;
+  margin: 0.5rem;
   opacity: 0.8;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: #dab775;
+  text-decoration: underline;
 }
 
 /* Responsiv design - tablet (768px och uppåt) */
